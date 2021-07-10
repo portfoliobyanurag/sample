@@ -1,0 +1,143 @@
+<html>
+<head>
+
+<!--
+NAME: ANURAG PANDEY
+NOTE: This is my original work. Please do not copy.
+-->
+<title>HTML Forms</title>
+
+<!--<link rel="stylesheet" type="text/css" href="basic.css">
+<script src="project.js"></script>-->
+</head>
+
+<H1> Online Classes v/s Traditional Classes </H1>
+
+<body>
+
+<p>This is a survey-type form created as an final project for the course
+Introduction to Web development. As we know due to the current pandemic situation
+schools and universities have switched to online classes rather than 
+traditional classroom-type of classes. The main purpose of this form is to 
+take feedback of various students about the online classes and weather they
+prefer the online classes or the traditional classes. I chose this because I 
+had my own views on online classes and I was curious about the point of view of 
+other students. Please be frank about your responses. Go ahead!</p>  
+
+<style>
+body {
+	background-color: rgb(0,0,30);
+}
+
+h1 {
+	font-size: 200%;
+	color: red;
+}
+
+img {
+	border-radius: 20px;
+	height: 140px;
+	
+}
+
+form {
+	font-size: 120%;
+	color: yellow;
+}
+
+p {
+	font-size: 110%;
+	color: magenta;
+}
+</style>
+<script>
+function checkName(){
+	var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+		document.getElementById("message1").innerHTML="Please provide input";
+    }
+	else
+	{
+		document.getElementById("message1").innerHTML="Accepted";
+	}
+}
+
+function checkAge(){
+  var y = document.forms["myForm"]["age"].value;
+  if ( y>150){
+	document.getElementById("message2").innerHTML="Wrong Input";
+  }
+  else{
+	document.getElementById("message2").innerHTML="Accepted";
+  }
+}
+
+
+
+function validateForm()
+{
+  //Name Validation
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  //Age validation
+  var y = document.forms["myForm"]["age"].value;
+  if ( y>150){
+	alert("Age must be in the range 0-150");
+	return false;	
+  }
+}
+</script>
+<!--Form starts here-->
+<img src="projectpic.png"/><br><br>
+<form name="myForm" action="mySubmitPage.html" onsubmit="return validateForm();">
+	Full name(must not be empty):
+	<input type="text" name="fname" onblur="checkName();"/><span id="message1"></span><br><br>
+	
+	E-mail ID:
+	<input type="text" name="lastname"><br><br>
+	
+	Date of birth(MM/DD/YYYY):
+	<input type="date" name="birtday"><br><br>
+	
+	Age(between 0 to 150):
+	<input type="number" name="age" onblur="checkAge();"/><span id="message2"></span><br><br>
+	
+	Which one do you like more:<br>
+	<input type="radio" name="ovst" value="Online Classes" >Online Classes<br>
+	<input type="radio" name="ovst" value="Traditional Classes">Traditional Classes<br><br>
+	
+	Do you think you are self-motivated to attend online classes:<br>
+	<input type="radio" name="self" value="Yes" >Yes<br>
+	<input type="radio" name="self" value="No">No<br><br>
+	
+	What issues do you face due to prolonged online classes(Select all that apply):<br>
+	<input type="checkbox" name="issues" value="Headache" >Headache<br>
+	<input type="checkbox" name="issues" value="Itchy Eye">Itchy Eyes<br>
+	<input type="checkbox" name="issues" value="Back pain" >Back Pain<br>
+	<input type="checkbox" name="issues" value="Internet issues">Internet connection Issues<br><br>
+	
+	What do you prefer:<br>
+	<input type="radio" name="pvsv" value="Phsical Laboratories" >Phsical Laboratories<br>
+	<input type="radio" name="pvsv" value="Virtual Simulation Labs">Virtual Simulation Labs<br><br>
+	
+	<input type="submit" value="Submit">
+	
+</form>
+	
+<p>As per requirements I have included:<br>
+1)3-5 lines form description<br>
+2)1 image<br>
+3)8 inputs of 4 types(text,date,radio,checkbox)<br>
+4)Validation of form<br>
+5)2 JavaScript validation functions(onblur)<br>
+6)5 CSS classes(body,h1,img,form,p)<br>
+7)HTML and JavaScript comments</p>
+ 
+
+</body>
+
+
+</html>
